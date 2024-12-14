@@ -9,15 +9,25 @@
 <body>
     <header><!-- header -->
         <h1>Generador de Memes</h1>
+        <nav><!-- botones de control central -->
+            <button id="imagen-boton">Imagen</button><!-- botón imagen -->
+            <button id="texto-boton">Texto</button><!-- botón texto -->
+            <button id="dark-mode-toggle">Modo oscuro</button><!-- botón modo oscuro -->
+            <button id="light-mode-toggle">Modo claro</button><!-- botón modo claro -->
+        </nav>
     </header>
-    <main>
-        <section><!-- sección de la imagen -->
-
+    <main><!-- contenido -->
+        <section id="meme-preview"><!-- sección de la imagen/canvas -->
+            <div id="meme-container">
+                <img id="meme-imagen" src="" alt="Vista previa del meme">
+                <p id="texto-superior" class="meme-text">Texto superior</p>
+                <p id="texto-inferior" class="meme-text">Texto inferior</p>
+            </div>
         </section>
-        <section><!-- sección de los controladores-->
+        <section><!-- sección de los controladores -->
 
         </section>
     </main>
-    <script src="script.js"></script>
+    <script src="./index.js"></script>
 </body>
 </html>
