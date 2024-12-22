@@ -17,17 +17,27 @@
         </nav>
     </header>
     <main><!-- contenido -->
-        <section id="meme-preview"><!-- sección de la imagen/canvas -->
+        <section id="meme-preview"><!-- sección de la imagen preview -->
             <div id="meme-container">
-                <img id="meme-imagen" src="" alt="Vista previa del meme">
                 <p id="texto-superior" class="meme-text">Texto superior</p>
+                <img id="meme-imagen" src="" alt="Vista previa del meme">
                 <p id="texto-inferior" class="meme-text">Texto inferior</p>
             </div>
         </section>
-        <section><!-- sección de los controladores -->
-
-        </section>
+        <aside><!-- sección de los controladores, luego ver dom en js-->
+            <div><!-- texto superior -->
+                <label for="top-text-input">Texto superior:</label>
+                <input type="text" id="top-text-input" placeholder="Escribe el texto superior">
+            </div>
+            <div><!-- texto inferior -->
+                <label for="bottom-text-input">Texto inferior:</label>
+                <input type="text" id="bottom-text-input" placeholder="Escribe el texto inferior">
+            </div>
+            <div><!-- botón para descargar -->
+                <button id="download-meme">Descargar Meme</button>
+            </div>
+        </aside>
     </main>
-    <script src="./index.js"></script>
+    <script src="./index.js"></script> <!-- vncula mi js -->
 </body>
 </html>
