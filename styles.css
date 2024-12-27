@@ -13,7 +13,7 @@ header { /* texto superior */
     color: white;
     padding: 1rem;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px #333333; 
 }
 
 header h1{
@@ -40,7 +40,7 @@ nav button {
     color: #333333;
     cursor: pointer;
     font-size: 16px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px #333333;
     transition: background-color 0.3s;
 }
 
@@ -62,7 +62,7 @@ main {
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px #333333;
     padding: 16px;
     text-align: center;
 }
@@ -89,7 +89,7 @@ main {
     color: white;
     font-weight: bold;
     text-align: center;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    text-shadow: 2px 2px 5px #333333;
 }
 
 #texto-superior {
@@ -101,7 +101,53 @@ main {
 }
 
 
-
 /* aside (panel lateral) */
+
+aside {
+    flex: 1;
+    width: 100%;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 16px;
+    box-shadow: 0 2px 5px #333333;
+    padding: 16px;
+}
+
+aside div {
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333333;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#download-meme {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    background-color: #6823FF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+#download-meme:hover {
+    background-color: #5C0F8B;
+}
 
 /* estilos modo oscuro */
