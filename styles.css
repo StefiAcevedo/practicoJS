@@ -7,6 +7,7 @@ body {
     color: #FFFFFF;
     font-family: Arial, sans-serif;
 }
+
 header { /* texto superior */
     background-color: #707070;
     color: white;
@@ -14,16 +15,19 @@ header { /* texto superior */
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
 header h1{
     margin: 0;
     font-size: 48px;
 }
+
 nav {
     margin-top: 24px;
     display: flex;
     justify-content: center;
     gap: 16px;
 }
+
 nav button {
     margin: 0;
     padding-top: 8px;
@@ -39,9 +43,11 @@ nav button {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s;
 }
+
 nav button:hover {
     background-color: #FFDBDA;
 }
+
 main {
     display: flex;
     justify-content: space-between;
@@ -50,6 +56,51 @@ main {
 }
 
 /* sección del preview del meme */
+
+#meme-preview {
+    flex: 2;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    text-align: center;
+}
+
+#meme-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin: 0 auto;
+}
+
+#meme-imagen {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.meme-text {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    padding: 8px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+#texto-superior {
+    top: 0;
+}
+
+#texto-inferior {
+    bottom: 0;
+}
+
+
 
 /* aside (panel lateral) */
 
