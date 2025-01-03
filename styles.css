@@ -1,4 +1,4 @@
-/* Estilos generales del tp */
+/* Estilos generales */
 body {
     margin: 0;
     padding: 0;
@@ -8,7 +8,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
-header { /* texto superior */
+header {
     background-color: #707070;
     color: white;
     padding: 1rem;
@@ -16,7 +16,7 @@ header { /* texto superior */
     box-shadow: 0 2px 5px #333333; 
 }
 
-header h1{
+header h1 {
     margin: 0;
     font-size: 48px;
 }
@@ -30,10 +30,7 @@ nav {
 
 nav button {
     margin: 0;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding: 8px 16px;
     border: none;
     border-radius: 8px;
     background-color: #FFFFFF;
@@ -48,6 +45,7 @@ nav button:hover {
     background-color: #FFDBDA;
 }
 
+/* sección principal */
 main {
     display: flex;
     justify-content: space-between;
@@ -55,8 +53,7 @@ main {
     gap: 16px;
 }
 
-/* sección del preview del meme */
-
+/* sección de preview del meme */
 #meme-preview {
     flex: 2;
     background-color: white;
@@ -100,9 +97,7 @@ main {
     bottom: 0;
 }
 
-
-/* aside (panel lateral) */
-
+/* Panel lateral (aside) */
 aside {
     flex: 1;
     width: 100%;
@@ -111,6 +106,20 @@ aside {
     border-radius: 16px;
     box-shadow: 0 2px 5px #333333;
     padding: 16px;
+}
+
+aside fieldset {
+    margin-bottom: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #f9f9f9;
+}
+
+aside fieldset legend {
+    font-weight: bold;
+    color: #333333;
+    padding: 0 8px;
 }
 
 aside div {
@@ -125,14 +134,19 @@ label {
     color: #333333;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="color"],
+select,
+input[type="range"] {
     width: 100%;
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    box-sizing: border-box
+    box-sizing: border-box;
+    font-size: 14px;
 }
 
+/* Botón de descargar */
 #download-meme {
     display: block;
     width: 100%;
@@ -151,7 +165,7 @@ input[type="text"] {
     background-color: #5C0F8B;
 }
 
-/* estilos modo oscuro */
+/* Estilos para el modo oscuro */
 
 body.dark-mode {
     background-color: #333333;
@@ -181,8 +195,16 @@ body.dark-mode aside {
     border-color: #555;
 }
 
-body.dark-mode input[type="text"] {
+body.dark-mode input[type="text"],
+body.dark-mode input[type="color"],
+body.dark-mode select,
+body.dark-mode input[type="range"] {
     background-color: #ADADAD;
     color: white;
     border-color: #666;
+}
+
+body.dark-mode aside fieldset {
+    background-color: #555555;
+    border-color: #666666;
 }
