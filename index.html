@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><!-- datos -->
+<head><!-- head -->
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generador de Memes</title>
@@ -9,35 +9,111 @@
 <body>
     <header><!-- header -->
         <h1>Generador de Memes</h1>
-        <nav><!-- botones de control central -->
-            <button id="imagen-boton">Imagen</button><!-- botón imagen -->
-            <button id="texto-boton">Texto</button><!-- botón texto -->
-            <button id="dark-mode-toggle">Modo oscuro</button><!-- botón modo oscuro -->
-            <button id="light-mode-toggle">Modo claro</button><!-- botón modo claro -->
+        <nav>
+            <button id="imagen-boton">Imagen</button>
+            <button id="texto-boton">Texto</button>
+            <button id="dark-mode-toggle">Modo oscuro</button>
+            <button id="light-mode-toggle">Modo claro</button>
         </nav>
     </header>
-    <main><!-- contenido -->
-        <section id="meme-preview"><!-- sección de la imagen preview -->
+    <main><!-- armado general -->
+        <section id="meme-preview"><!-- preview del meme -->
             <div id="meme-container">
                 <p id="texto-superior" class="meme-text">Texto superior</p>
                 <img id="meme-imagen" src="" alt="Vista previa del meme">
                 <p id="texto-inferior" class="meme-text">Texto inferior</p>
             </div>
         </section>
-        <aside><!-- sección de los controladores, luego ver dom en js-->
-            <div><!-- texto superior -->
-                <label for="top-text-input">Texto superior:</label>
-                <input type="text" id="top-text-input" placeholder="Escribe el texto superior">
-            </div>
-            <div><!-- texto inferior -->
-                <label for="bottom-text-input">Texto inferior:</label>
-                <input type="text" id="bottom-text-input" placeholder="Escribe el texto inferior">
-            </div>
-            <div><!-- botón para descargar -->
+        <aside><!-- panel del aside con filtros -->
+            <fieldset>
+                <legend>Filtros de Imagen</legend>
+                <div>
+                    <label for="brillo">Brillo</label>
+                    <input type="range" id="brillo" min="0" max="200" value="100">
+                </div>
+                <div>
+                    <label for="opacidad">Opacidad</label>
+                    <input type="range" id="opacidad" min="0" max="100" value="100">
+                </div>
+                <div>
+                    <label for="contraste">Contraste</label>
+                    <input type="range" id="contraste" min="0" max="200" value="100">
+                </div>
+                <div>
+                    <label for="desenfoque">Desenfoque</label>
+                    <input type="range" id="desenfoque" min="0" max="10" value="0">
+                </div>
+                <div>
+                    <label for="grises">Escala de grises</label>
+                    <input type="range" id="grises" min="0" max="100" value="0">
+                </div>
+                <div>
+                    <label for="sepia">Sepia</label>
+                    <input type="range" id="sepia" min="0" max="100" value="0">
+                </div>
+                <div>
+                    <label for="hue">Hue (Tonalidad)</label>
+                    <input type="range" id="hue" min="0" max="360" value="0">
+                </div>
+                <div>
+                    <label for="saturado">Saturado</label>
+                    <input type="range" id="saturado" min="0" max="200" value="100">
+                </div>
+                <div>
+                    <label for="negativo">Negativo</label>
+                    <input type="range" id="negativo" min="0" max="100" value="0">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Texto del Meme</legend>
+                <div>
+                    <label for="top-text-input">Texto superior:</label>
+                    <input type="text" id="top-text-input" placeholder="Escribe el texto superior">
+                </div>
+                <div>
+                    <label for="bottom-text-input">Texto inferior:</label>
+                    <input type="text" id="bottom-text-input" placeholder="Escribe el texto inferior">
+                </div>
+                <div>
+                    <label for="fuente">Fuente</label>
+                    <select id="fuente">
+                        <option value="Arial">Arial</option>
+                        <option value="Verdana">Verdana</option>
+                        <option value="Comic Sans MS">Comic Sans MS</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Impact">Impact</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="color-letra">Color de la letra</label>
+                    <input type="color" id="color-letra" value="#ffffff">
+                </div>
+                <div>
+                    <label for="color-fondo">Color del fondo</label>
+                    <input type="color" id="color-fondo" value="#000000">
+                </div>
+                <div>
+                    <label for="contorno">Contorno</label>
+                    <select id="contorno">
+                        <option value="ninguno">Ninguno</option>
+                        <option value="claro">Claro</option>
+                        <option value="oscuro">Oscuro</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="espaciado">Espaciado</label>
+                    <input type="range" id="espaciado" min="0" max="20" value="0">
+                </div>
+                <div>
+                    <label for="interlineado">Interlineado</label>
+                    <input type="range" id="interlineado" min="1" max="3" step="0.1" value="1.5">
+                </div>
+            </fieldset>
+            <div>
                 <button id="download-meme">Descargar Meme</button>
             </div>
         </aside>
     </main>
-    <script src="./index.js"></script> <!-- vncula mi js -->
+    <script src="./index.js"></script><!-- vincula el js -->
 </body>
 </html>
