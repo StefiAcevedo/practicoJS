@@ -147,7 +147,9 @@ input[type="range"] {
 }
 
 /* Botón de descargar */
-#download-meme {
+
+#meme-preview #download-meme {
+    margin-top: 16px;
     display: block;
     width: 100%;
     padding: 8px;
@@ -161,9 +163,10 @@ input[type="range"] {
     transition: background-color 0.3s;
 }
 
-#download-meme:hover {
+#meme-preview #download-meme:hover {
     background-color: #5C0F8B;
 }
+
 
 /* Estilos para el modo oscuro */
 
