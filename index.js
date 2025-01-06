@@ -27,4 +27,79 @@ function updateImage() {
     memeImage.src = url; // Actualiza la URL de la imagen
 }
 
-// para la imagen (actualizar)
+// para actualizar los textos (chequear!)
+function updateText() {
+    topText.textContent = topTextInput.value;
+    bottomText.textContent = bottomTextInput.value;
+}
+
+// para cambiar los textos
+function updateFont() {
+    const font = fontSelector.value;
+    topText.style.fontFamily = font;
+    bottomText.style.fontFamily = font;
+}
+
+// para cambiar el color de los textos
+function updateTextColor() {
+    const color = textColorInput.value;
+    topText.style.color = color;
+    bottomText.style.color = color;
+}
+
+// para cambiar el fondo de color de los textos
+function updateBgColor() {
+    const bgColor = bgColorInput.value;
+    topText.style.backgroundColor = bgColor;
+    bottomText.style.backgroundColor = bgColor;
+}
+
+// para cambiar el contorno  de los textos
+function updateOutline() {
+    const outline = outlineSelector.value;
+    switch (outline) {
+        case 'ninguno':
+            topText.style.textShadow = 'none';
+            bottomText.style.textShadow = 'none';
+            break;
+        case 'claro':
+            topText.style.textShadow = '2px 2px 5px white';
+            bottomText.style.textShadow = '2px 2px 5px white';
+            break;
+        case 'oscuro':
+            topText.style.textShadow = '2px 2px 5px black';
+            bottomText.style.textShadow = '2px 2px 5px black';
+            break;
+    }
+}
+
+// para ajustar el espaciado
+function updateSpacing() {
+    const spacing = `${spacingInput.value}px`;
+    topText.style.padding = spacing;
+    bottomText.style.padding = spacing;
+}
+
+// para ajustar el interlineado
+function updateLineHeight() {
+    const lineHeight = lineHeightInput.value;
+    topText.style.lineHeight = lineHeight;
+    bottomText.style.lineHeight = lineHeight;
+}
+
+// para agregar los eventos a los contraladores!
+
+// Imagen
+imageUrlInput.addEventListener('input', updateImage);
+
+// Texto
+topTextInput.addEventListener('input', updateText);
+bottomTextInput.addEventListener('input', updateText);
+
+// Estilo de texto
+fontSelector.addEventListener('change', updateFont);
+textColorInput.addEventListener('input', updateTextColor);
+bgColorInput.addEventListener('input', updateBgColor);
+outlineSelector.addEventListener('change', updateOutline);
+spacingInput.addEventListener('input', updateSpacing);
+lineHeightInput.addEventListener('input', updateLineHeight);
