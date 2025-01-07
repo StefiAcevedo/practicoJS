@@ -150,3 +150,22 @@ grayscaleInput.addEventListener('input', updateFilters);
 
 // Mostrar controles iniciales
 showControls('image'); // Por defecto, mostramos los controles de imagen
+
+
+// para modo oscuro/claro
+document.getElementById("dark-mode-toggle").addEventListener("click", () => {
+    document.body.classList.add("dark-mode");
+    localStorage.setItem("theme", "dark");
+});
+
+document.getElementById("light-mode-toggle").addEventListener("click", () => {
+    document.body.classList.remove("dark-mode");
+    localStorage.setItem("theme", "light");
+});
+
+window.onload = function() {
+    const theme = localStorage.getItem("theme");
+    if (theme === "dark") {
+        document.body.classList.add("dark-mode");
+    }
+};
