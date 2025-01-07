@@ -103,3 +103,37 @@ bgColorInput.addEventListener('input', updateBgColor);
 outlineSelector.addEventListener('change', updateOutline);
 spacingInput.addEventListener('input', updateSpacing);
 lineHeightInput.addEventListener('input', updateLineHeight);
+
+// FILTROS IMAGEN ---------------------------------
+
+// Controles de filtros general
+const brightnessInput = document.getElementById('brillo');
+const contrastInput = document.getElementById('contraste');
+const saturationInput = document.getElementById('saturacion');
+const blurInput = document.getElementById('desenfoque');
+const grayscaleInput = document.getElementById('escala-grises');
+
+// Para actualizar los filtros de la imagen
+function updateFilters() {
+    const brightness = brightnessInput.value;
+    const contrast = contrastInput.value;
+    const saturation = saturationInput.value;
+    const blur = blurInput.value;
+    const grayscale = grayscaleInput.value;
+
+    // Aplica todos los filtros a la vez
+    memeImage.style.filter = `
+        brightness(${brightness}%)
+        contrast(${contrast}%)
+        saturate(${saturation}%)
+        blur(${blur}px)
+        grayscale(${grayscale}%)
+    `;
+}
+
+// Agregar eventos a los controles de filtros
+brightnessInput.addEventListener('input', updateFilters);
+contrastInput.addEventListener('input', updateFilters);
+saturationInput.addEventListener('input', updateFilters);
+blurInput.addEventListener('input', updateFilters);
+grayscaleInput.addEventListener('input', updateFilters);
