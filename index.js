@@ -1,8 +1,8 @@
 // Esto es un comentario, prueba de instalación de nodejs + extensión de código
 
 // Elementos principales
-const imageControls = document.getElementById('image-controls');
-const textControls = document.getElementById('text-controls');
+const imageControls = document.getElementById('imagen-filtros');
+const textControls = document.getElementById('texto-filtros');
 const imageButton = document.getElementById('btn-image');
 const textButton = document.getElementById('btn-text');
 
@@ -24,11 +24,20 @@ const outlineSelector = document.getElementById('contorno');
 const spacingInput = document.getElementById('espaciado');
 const lineHeightInput = document.getElementById('interlineado');
 
-// para la imagen (actualizar)
+// Función para actualizar la imagen
 function updateImage() {
-    const url = imageUrlInput.value;
-    memeImage.src = url; // Actualiza la URL de la imagen
+    const imageUrl = imageUrlInput.value;
+    if (imageUrl) {
+        memeImage.src = imageUrl;
+    }
 }
+
+// Manejo de errores de carga de imagen
+memeImage.addEventListener('error', function() {
+    alert('Error al cargar la imagen. Por favor verifica la URL.');
+    // Volver a la imagen por defecto
+    this.src = "https://images.unsplash.com/photo-1606755327810-e0ea1c2e7d27";
+});
 
 // para actualizar los textos
 function updateText() {
@@ -92,24 +101,36 @@ function updateLineHeight() {
 
 // para los filtros de imagen
 const brightnessInput = document.getElementById('brillo');
+const opacityInput = document.getElementById('opacidad');
 const contrastInput = document.getElementById('contraste');
-const saturationInput = document.getElementById('saturacion');
 const blurInput = document.getElementById('desenfoque');
-const grayscaleInput = document.getElementById('escala-grises');
+const grayscaleInput = document.getElementById('grises');
+const sepiaInput = document.getElementById('sepia');
+const hueInput = document.getElementById('hue');
+const saturationInput = document.getElementById('saturado');
+const negativeInput = document.getElementById('negativo');
 
 function updateFilters() {
     const brightness = brightnessInput.value;
+    const opacity = opacityInput.value;
     const contrast = contrastInput.value;
-    const saturation = saturationInput.value;
     const blur = blurInput.value;
     const grayscale = grayscaleInput.value;
+    const sepia = sepiaInput.value;
+    const hue = hueInput.value;
+    const saturation = saturationInput.value;
+    const negative = negativeInput.value;
 
     memeImage.style.filter = `
         brightness(${brightness}%)
+        opacity(${opacity}%)
         contrast(${contrast}%)
-        saturate(${saturation}%)
         blur(${blur}px)
         grayscale(${grayscale}%)
+        sepia(${sepia}%)
+        hue-rotate(${hue}deg)
+        saturate(${saturation}%)
+        invert(${negative}%)
     `;
 }
 
@@ -143,28 +164,55 @@ lineHeightInput.addEventListener('input', updateLineHeight);
 
 // Eventos de filtros de imagen
 brightnessInput.addEventListener('input', updateFilters);
+opacityInput.addEventListener('input', updateFilters);
 contrastInput.addEventListener('input', updateFilters);
-saturationInput.addEventListener('input', updateFilters);
 blurInput.addEventListener('input', updateFilters);
 grayscaleInput.addEventListener('input', updateFilters);
+sepiaInput.addEventListener('input', updateFilters);
+hueInput.addEventListener('input', updateFilters);
+saturationInput.addEventListener('input', updateFilters);
+negativeInput.addEventListener('input', updateFilters);
 
-// Mostrar controles iniciales
-showControls('image'); // Por defecto, mostramos los controles de imagen
- 
 // para modo oscuro/claro
-document.getElementById("dark-mode-toggle").addEventListener("click", () => {
-    document.body.classList.add("dark-mode");
-    localStorage.setItem("theme", "dark");
+
+// Esperar a que todo el DOM esté cargado
+document.addEventListener('DOMContentLoaded', function() {
+     // botones
+     const darkModeButton = document.getElementById("dark-mode-toggle");
+     const lightModeButton = document.getElementById("light-mode-toggle");
+     
+     // Función para cambiar a modo oscuro
+     function enableDarkMode() {
+         document.body.classList.add("dark-mode");
+         if (darkModeButton) darkModeButton.style.display = 'none';
+         if (lightModeButton) lightModeButton.style.display = 'block';
+         localStorage.setItem("theme", "dark");
+     }
+ 
+     // Función para cambiar a modo claro
+     function enableLightMode() {
+         document.body.classList.remove("dark-mode");
+         if (darkModeButton) darkModeButton.style.display = 'block';
+         if (lightModeButton) lightModeButton.style.display = 'none';
+         localStorage.setItem("theme", "light");
+     }
+ 
+     // Agregar event listeners si los botones existen
+     if (darkModeButton) {
+         darkModeButton.addEventListener("click", enableDarkMode);
+     }
+ 
+     if (lightModeButton) {
+         lightModeButton.addEventListener("click", enableLightMode);
+     }
+ 
+     // Verificar el tema guardado
+     const savedTheme = localStorage.getItem("theme");
+     if (savedTheme === "dark") {
+         enableDarkMode();
+     } else {
+         enableLightMode();
+     }
 });
 
-document.getElementById("light-mode-toggle").addEventListener("click", () => {
-    document.body.classList.remove("dark-mode");
-    localStorage.setItem("theme", "light");
-});
-
-window.onload = function() {
-    const theme = localStorage.getItem("theme");
-    if (theme === "dark") {
-        document.body.classList.add("dark-mode");
-    }
-};
+// revisar
