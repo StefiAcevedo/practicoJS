@@ -114,6 +114,20 @@ body.dark-mode #meme-image {
     bottom: 16px;
 }
 
+#download-meme {
+    width: 100%;
+    color: #f0f0f0;
+    background-color: coral;
+    border-radius: 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-right: 24px;
+    padding-left: 24px;
+    font-size: 20px;
+}
+
 /* Panel lateral (aside) */
 aside {
     flex: 1;
