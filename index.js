@@ -1,6 +1,10 @@
-// esto es un comentario, prueba de instalación de nodejs + extension de codigo
+// Esto es un comentario, prueba de instalación de nodejs + extensión de código
 
-// primeros pasos DOM
+// Elementos principales
+const imageControls = document.getElementById('image-controls');
+const textControls = document.getElementById('text-controls');
+const imageButton = document.getElementById('btn-image');
+const textButton = document.getElementById('btn-text');
 
 // para la imagen
 const imageUrlInput = document.getElementById('image-url-input');
@@ -20,14 +24,13 @@ const outlineSelector = document.getElementById('contorno');
 const spacingInput = document.getElementById('espaciado');
 const lineHeightInput = document.getElementById('interlineado');
 
-
 // para la imagen (actualizar)
 function updateImage() {
     const url = imageUrlInput.value;
     memeImage.src = url; // Actualiza la URL de la imagen
 }
 
-// para actualizar los textos (chequear!)
+// para actualizar los textos
 function updateText() {
     topText.textContent = topTextInput.value;
     bottomText.textContent = bottomTextInput.value;
@@ -54,7 +57,7 @@ function updateBgColor() {
     bottomText.style.backgroundColor = bgColor;
 }
 
-// para cambiar el contorno  de los textos
+// para cambiar el contorno de los textos
 function updateOutline() {
     const outline = outlineSelector.value;
     switch (outline) {
@@ -87,33 +90,13 @@ function updateLineHeight() {
     bottomText.style.lineHeight = lineHeight;
 }
 
-// para agregar los eventos a los contraladores!
-
-// Imagen
-imageUrlInput.addEventListener('input', updateImage);
-
-// Texto
-topTextInput.addEventListener('input', updateText);
-bottomTextInput.addEventListener('input', updateText);
-
-// Estilo de texto
-fontSelector.addEventListener('change', updateFont);
-textColorInput.addEventListener('input', updateTextColor);
-bgColorInput.addEventListener('input', updateBgColor);
-outlineSelector.addEventListener('change', updateOutline);
-spacingInput.addEventListener('input', updateSpacing);
-lineHeightInput.addEventListener('input', updateLineHeight);
-
-// FILTROS IMAGEN ---------------------------------
-
-// Controles de filtros general
+// para los filtros de imagen
 const brightnessInput = document.getElementById('brillo');
 const contrastInput = document.getElementById('contraste');
 const saturationInput = document.getElementById('saturacion');
 const blurInput = document.getElementById('desenfoque');
 const grayscaleInput = document.getElementById('escala-grises');
 
-// Para actualizar los filtros de la imagen
 function updateFilters() {
     const brightness = brightnessInput.value;
     const contrast = contrastInput.value;
@@ -121,7 +104,6 @@ function updateFilters() {
     const blur = blurInput.value;
     const grayscale = grayscaleInput.value;
 
-    // Aplica todos los filtros a la vez
     memeImage.style.filter = `
         brightness(${brightness}%)
         contrast(${contrast}%)
@@ -131,9 +113,40 @@ function updateFilters() {
     `;
 }
 
-// Agregar eventos a los controles de filtros
+// Mostrar y ocultar los controles
+function showControls(type) {
+    if (type === 'image') {
+        imageControls.style.display = 'block';
+        textControls.style.display = 'none';
+    } else if (type === 'text') {
+        imageControls.style.display = 'none';
+        textControls.style.display = 'block';
+    }
+}
+
+// Agregar eventos para mostrar los controles según el botón
+imageButton.addEventListener('click', () => showControls('image'));
+textButton.addEventListener('click', () => showControls('text'));
+
+// Eventos de imagen
+imageUrlInput.addEventListener('input', updateImage);
+
+// Eventos de texto
+topTextInput.addEventListener('input', updateText);
+bottomTextInput.addEventListener('input', updateText);
+fontSelector.addEventListener('change', updateFont);
+textColorInput.addEventListener('input', updateTextColor);
+bgColorInput.addEventListener('input', updateBgColor);
+outlineSelector.addEventListener('change', updateOutline);
+spacingInput.addEventListener('input', updateSpacing);
+lineHeightInput.addEventListener('input', updateLineHeight);
+
+// Eventos de filtros de imagen
 brightnessInput.addEventListener('input', updateFilters);
 contrastInput.addEventListener('input', updateFilters);
 saturationInput.addEventListener('input', updateFilters);
 blurInput.addEventListener('input', updateFilters);
 grayscaleInput.addEventListener('input', updateFilters);
+
+// Mostrar controles iniciales
+showControls('image'); // Por defecto, mostramos los controles de imagen
