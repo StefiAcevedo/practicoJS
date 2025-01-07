@@ -4,7 +4,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     background-color: #333333;
-    color: #FFFFFF;
+    color: #333333;
     font-family: Arial, sans-serif;
 }
 
@@ -13,7 +13,7 @@ header {
     color: white;
     padding: 1rem;
     text-align: center;
-    box-shadow: 0 2px 5px #333333; 
+    box-shadow: 0 2px 5px #333333;
 }
 
 header h1 {
@@ -50,7 +50,7 @@ nav button:hover {
 main {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start; 
+    align-items: flex-start;
     gap: 16px;
     padding: 16px;
 }
@@ -107,11 +107,11 @@ body.dark-mode #meme-image {
 }
 
 #top-text {
-    top: 16px; 
+    top: 16px;
 }
 
 #bottom-text {
-    bottom: 16px; 
+    bottom: 16px;
 }
 
 /* Panel lateral (aside) */
@@ -124,6 +124,7 @@ aside {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
     padding: 16px;
     margin-top: 16px;
+    box-sizing: border-box;
 }
 
 aside input[type="text"],
@@ -132,6 +133,9 @@ aside input[type="color"],
 aside input[type="range"] {
     width: 100%;
     margin-bottom: 16px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid #d3d3d3;
 }
 
 aside label {
@@ -151,7 +155,22 @@ button:active {
     transform: scale(0.98);
 }
 
+fieldset {
+    display: block;
+    min-inline-size: min-content;
+    margin-inline: 2px;
+    border-width: 2px;
+    border-style: groove;
+    border-color:#707070;
+    border-image: initial;
+    padding-block: 16px;
+    padding-inline: 16px;
+    border-radius: 8px;
+    margin-top: 16px;
+}
+
 /* Modo oscuro */
+
 body.dark-mode {
     background-color: #121212;
     color: #FFFFFF;
@@ -179,9 +198,10 @@ button#light-mode-toggle {
 }
 
 /* Estilo de interacciones de texto */
+
 textarea, input[type="text"], select, input[type="range"], input[type="color"] {
-    border-radius: 5px;
-    border: none;
+    border-radius: 8px;
+    border: #333333;
     padding: 8px;
     font-size: 16px;
 }
