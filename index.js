@@ -176,4 +176,28 @@ window.onload = function () {
   }
 };
 
-//
+// para descargar el meme
+// esto lo saque de una libreria que busque!
+
+const downloadButton = document.getElementById('download-meme');
+
+downloadButton.addEventListener('click', () => {
+  const memeContainer = document.getElementById('meme-container');
+
+  html2canvas(memeContainer, {
+    allowTaint: true,
+    useCORS: true,
+    backgroundColor: null,
+  })
+    .then((canvas) => {
+      const link = document.createElement('a');
+      link.download = 'mi-meme.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    })
+    .catch((err) => {
+      console.error('Error al generar la imagen:', err);
+    });
+});
+
+  // final :) 
