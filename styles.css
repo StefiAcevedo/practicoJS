@@ -6,58 +6,58 @@ body {
     background-color: #333333;
     color: #333333;
     font-family: Arial, sans-serif;
-}
-
-header {
+  }
+  
+  header {
     background-color: #707070;
     color: white;
     padding: 1rem;
     text-align: center;
     box-shadow: 0 2px 5px #333333;
-}
-
-header h1 {
+  }
+  
+  header h1 {
     margin: 0;
     font-size: 48px;
-}
-
-nav {
+  }
+  
+  nav {
     margin-top: 24px;
     display: flex;
     justify-content: center;
     gap: 16px;
-}
-
-nav button {
+  }
+  
+  nav button {
     margin: 0;
     padding: 8px 16px;
     border: none;
     border-radius: 8px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     color: #333333;
     cursor: pointer;
     font-size: 16px;
     box-shadow: 0 2px 5px #333333;
     transition: background-color 0.3s;
-}
-
-nav button:hover {
-    background-color: #FFDBDA;
-}
-
-/* sección principal */
-
-main {
+  }
+  
+  nav button:hover {
+    background-color: #ffdbda;
+  }
+  
+  /* sección principal */
+  
+  main {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     gap: 16px;
     padding: 16px;
-}
-
-/* sección de preview del meme */
-
-#meme-preview {
+  }
+  
+  /* sección de preview del meme */
+  
+  #meme-preview {
     flex: 2;
     display: flex;
     justify-content: center;
@@ -69,9 +69,9 @@ main {
     flex-direction: column;
     width: 100%;
     height: 100%;
-}
-
-#meme-container {
+  }
+  
+  #meme-container {
     position: relative;
     width: 500px;
     height: 500px;
@@ -81,21 +81,21 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-#meme-image {
+  }
+  
+  #meme-image {
     position: relative;
     width: 100%;
     height: 100%;
     object-fit: contain;
     background-color: transparent; /* transparente por defecto */
-}
-
-body.dark-mode #meme-image {
+  }
+  
+  body.dark-mode #meme-image {
     background-color: black; /* Fondo negro en modo oscuro */
-}
-
-.meme-text {
+  }
+  
+  .meme-text {
     position: absolute;
     width: 100%;
     text-align: center;
@@ -104,17 +104,17 @@ body.dark-mode #meme-image {
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     pointer-events: none;
-}
-
-#top-text {
+  }
+  
+  #top-text {
     top: 16px;
-}
-
-#bottom-text {
+  }
+  
+  #bottom-text {
     bottom: 16px;
-}
-
-#download-meme {
+  }
+  
+  #download-meme {
     width: 100%;
     color: #f0f0f0;
     background-color: coral;
@@ -126,10 +126,10 @@ body.dark-mode #meme-image {
     padding-right: 24px;
     padding-left: 24px;
     font-size: 20px;
-}
-
-/* Panel lateral (aside) */
-aside {
+  }
+  
+  /* Panel lateral (aside) */
+  aside {
     flex: 1;
     width: 100%;
     background-color: white;
@@ -139,83 +139,79 @@ aside {
     padding: 16px;
     margin-top: 16px;
     box-sizing: border-box;
-}
-
-aside input[type="text"],
-aside select,
-aside input[type="color"],
-aside input[type="range"] {
+  }
+  
+  aside input[type='text'],
+  aside select,
+  aside input[type='color'],
+  aside input[type='range'] {
     width: 100%;
     margin-bottom: 16px;
     box-sizing: border-box;
     border-radius: 8px;
     border: 1px solid #d3d3d3;
-}
-
-aside label {
+  }
+  
+  aside label {
     display: block;
     margin-bottom: 8px;
-}
-
-button:focus {
+  }
+  
+  button:focus {
     outline: none;
-}
-
-input[type="text"]:focus {
+  }
+  
+  input[type='text']:focus {
     background-color: #f0f0f0;
-}
-
-button:active {
+  }
+  
+  button:active {
     transform: scale(0.98);
-}
-
-fieldset {
+  }
+  
+  fieldset {
     display: block;
     min-inline-size: min-content;
     margin-inline: 2px;
     border-width: 2px;
     border-style: groove;
-    border-color:#707070;
+    border-color: #707070;
     border-image: initial;
     padding-block: 16px;
     padding-inline: 16px;
     border-radius: 8px;
     margin-top: 16px;
-}
-
-/* Modo oscuro */
-
-body.dark-mode {
+  }
+  
+  /* Modo oscuro */
+  
+  body.dark-mode {
     background-color: #121212;
-    color: #FFFFFF;
-}
-
-body.dark-mode header {
+    color: #ffffff;
+  }
+  
+  body.dark-mode header {
     background-color: #333;
-}
-
-body.dark-mode nav button {
+  }
+  
+  body.dark-mode nav button {
     background-color: #444;
-    color: #FFFFFF;
-}
-
-body.dark-mode aside {
+    color: #ffffff;
+  }
+  
+  body.dark-mode aside {
     background-color: #1e1e1e;
-}
-
-button#dark-mode-toggle {
-    display: none;
-}
-
-button#light-mode-toggle {
-    display: block;
-}
-
-/* Estilo de interacciones de texto */
-
-textarea, input[type="text"], select, input[type="range"], input[type="color"] {
+  }
+  
+  /* Estilo de interacciones de texto */
+  
+  textarea,
+  input[type='text'],
+  select,
+  input[type='range'],
+  input[type='color'] {
     border-radius: 8px;
     border: #333333;
     padding: 8px;
     font-size: 16px;
-}
+  }

@@ -1,9 +1,8 @@
 // Esto es un comentario, prueba de instalación de nodejs + extensión de código
 
-
 // Elementos principales
-const imageControls = document.getElementById('image-controls');
-const textControls = document.getElementById('text-controls');
+const imageControls = document.getElementById('imagen-filtros');
+const textControls = document.getElementById('texto-filtros');
 const imageButton = document.getElementById('btn-image');
 const textButton = document.getElementById('btn-text');
 
@@ -27,86 +26,92 @@ const lineHeightInput = document.getElementById('interlineado');
 
 // para la imagen (actualizar)
 
+function updateImage() {
+  const url = imageUrlInput.value;
+  if (url) {
+    memeImage.src = url;
+  }
+}
 
 // Cambiar la imagen (revisar!)
-document.getElementById("meme-image").src = "https://images.unsplash.com/photo-1606755327810-e0ea1c2e7d27";
-
+document.getElementById('meme-image').src =
+  'https://images.unsplash.com/photo-1735657061829-fc1b934035f9?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 
 // para actualizar los textos
 function updateText() {
-    topText.textContent = topTextInput.value;
-    bottomText.textContent = bottomTextInput.value;
+  topText.textContent = topTextInput.value;
+  bottomText.textContent = bottomTextInput.value;
 }
 
 // para cambiar los textos
 function updateFont() {
-    const font = fontSelector.value;
-    topText.style.fontFamily = font;
-    bottomText.style.fontFamily = font;
+  const font = fontSelector.value;
+  topText.style.fontFamily = font;
+  bottomText.style.fontFamily = font;
 }
 
 // para cambiar el color de los textos
 function updateTextColor() {
-    const color = textColorInput.value;
-    topText.style.color = color;
-    bottomText.style.color = color;
+  const color = textColorInput.value;
+  topText.style.color = color;
+  bottomText.style.color = color;
 }
 
 // para cambiar el fondo de color de los textos
 function updateBgColor() {
-    const bgColor = bgColorInput.value;
-    topText.style.backgroundColor = bgColor;
-    bottomText.style.backgroundColor = bgColor;
+  const bgColor = bgColorInput.value;
+  topText.style.backgroundColor = bgColor;
+  bottomText.style.backgroundColor = bgColor;
 }
 
 // para cambiar el contorno de los textos
 function updateOutline() {
-    const outline = outlineSelector.value;
-    switch (outline) {
-        case 'ninguno':
-            topText.style.textShadow = 'none';
-            bottomText.style.textShadow = 'none';
-            break;
-        case 'claro':
-            topText.style.textShadow = '2px 2px 5px white';
-            bottomText.style.textShadow = '2px 2px 5px white';
-            break;
-        case 'oscuro':
-            topText.style.textShadow = '2px 2px 5px black';
-            bottomText.style.textShadow = '2px 2px 5px black';
-            break;
-    }
+  const outline = outlineSelector.value;
+  switch (outline) {
+    case 'ninguno':
+      topText.style.textShadow = 'none';
+      bottomText.style.textShadow = 'none';
+      break;
+    case 'claro':
+      topText.style.textShadow = '2px 2px 5px white';
+      bottomText.style.textShadow = '2px 2px 5px white';
+      break;
+    case 'oscuro':
+      topText.style.textShadow = '2px 2px 5px black';
+      bottomText.style.textShadow = '2px 2px 5px black';
+      break;
+  }
 }
 
 // para ajustar el espaciado
 function updateSpacing() {
-    const spacing = `${spacingInput.value}px`;
-    topText.style.padding = spacing;
-    bottomText.style.padding = spacing;
+  const spacing = `${spacingInput.value}px`;
+  topText.style.padding = spacing;
+  bottomText.style.padding = spacing;
 }
 
 // para ajustar el interlineado
 function updateLineHeight() {
-    const lineHeight = lineHeightInput.value;
-    topText.style.lineHeight = lineHeight;
-    bottomText.style.lineHeight = lineHeight;
+  const lineHeight = lineHeightInput.value;
+  topText.style.lineHeight = lineHeight;
+  bottomText.style.lineHeight = lineHeight;
 }
 
 // para los filtros de imagen
 const brightnessInput = document.getElementById('brillo');
 const contrastInput = document.getElementById('contraste');
-const saturationInput = document.getElementById('saturacion');
+const saturationInput = document.getElementById('saturado');
 const blurInput = document.getElementById('desenfoque');
-const grayscaleInput = document.getElementById('escala-grises');
+const grayscaleInput = document.getElementById('grises');
 
 function updateFilters() {
-    const brightness = brightnessInput.value;
-    const contrast = contrastInput.value;
-    const saturation = saturationInput.value;
-    const blur = blurInput.value;
-    const grayscale = grayscaleInput.value;
+  const brightness = brightnessInput.value;
+  const contrast = contrastInput.value;
+  const saturation = saturationInput.value;
+  const blur = blurInput.value;
+  const grayscale = grayscaleInput.value;
 
-    memeImage.style.filter = `
+  memeImage.style.filter = `
         brightness(${brightness}%)
         contrast(${contrast}%)
         saturate(${saturation}%)
@@ -117,13 +122,13 @@ function updateFilters() {
 
 // Mostrar y ocultar los controles
 function showControls(type) {
-    if (type === 'image') {
-        imageControls.style.display = 'block';
-        textControls.style.display = 'none';
-    } else if (type === 'text') {
-        imageControls.style.display = 'none';
-        textControls.style.display = 'block';
-    }
+  if (type === 'image') {
+    imageControls.style.display = 'block';
+    textControls.style.display = 'none';
+  } else if (type === 'text') {
+    imageControls.style.display = 'none';
+    textControls.style.display = 'block';
+  }
 }
 
 // Agregar eventos para mostrar los controles según el botón
@@ -152,23 +157,23 @@ grayscaleInput.addEventListener('input', updateFilters);
 
 // Mostrar controles iniciales
 showControls('image'); // Por defecto, mostramos los controles de imagen
- 
+
 // para modo oscuro/claro
-document.getElementById("dark-mode-toggle").addEventListener("click", () => {
-    document.body.classList.add("dark-mode");
-    localStorage.setItem("theme", "dark");
+document.getElementById('dark-mode-toggle').addEventListener('click', () => {
+  document.body.classList.add('dark-mode');
+  localStorage.setItem('theme', 'dark');
 });
 
-document.getElementById("light-mode-toggle").addEventListener("click", () => {
-    document.body.classList.remove("dark-mode");
-    localStorage.setItem("theme", "light");
+document.getElementById('light-mode-toggle').addEventListener('click', () => {
+  document.body.classList.remove('dark-mode');
+  localStorage.setItem('theme', 'light');
 });
 
-window.onload = function() {
-    const theme = localStorage.getItem("theme");
-    if (theme === "dark") {
-        document.body.classList.add("dark-mode");
-    }
+window.onload = function () {
+  const theme = localStorage.getItem('theme');
+  if (theme === 'dark') {
+    document.body.classList.add('dark-mode');
+  }
 };
 
 //
