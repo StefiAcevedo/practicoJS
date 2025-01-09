@@ -156,7 +156,7 @@ blurInput.addEventListener('input', updateFilters);
 grayscaleInput.addEventListener('input', updateFilters);
 
 // Mostrar controles iniciales
-showControls('image'); // Por defecto, mostramos los controles de imagen
+showControls('image'); // Por defecto, mostramos los controles de imagen?
 
 // para modo oscuro/claro
 document.getElementById('dark-mode-toggle').addEventListener('click', () => {

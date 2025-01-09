@@ -108,6 +108,7 @@ body {
   
   #top-text {
     top: 16px;
+    z-index: 1
   }
   
   #bottom-text {
